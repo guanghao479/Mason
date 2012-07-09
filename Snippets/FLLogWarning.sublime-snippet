@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-FLLogWarning("${1:######DEBUG }", Data::Dumper::Dumper(${2}), join(",",map($_->title,$m->callers)));
+FLLogWarning("${1:######DEBUG }", Data::Dumper::Dumper(${2}), join(",",map(\$_->title,\$m->callers)));
 ]]></content>
   <tabTrigger>FLLogWarning</tabTrigger>
   <scope>text.html.mason</scope>
