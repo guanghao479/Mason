@@ -1,0 +1,10 @@
+<snippet>
+    <content><![CDATA[
+<%args>
+${1} => ${2}
+</%args>
+]]></content>
+    <tabTrigger>args</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason &lt;&#37;args&gt;</description>
+</snippet>

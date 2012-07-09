@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[<%doc>
+${1}
+</%doc>
+]]></content>
+    <tabTrigger>doc</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason &lt;&#37;doc&gt;</description>
+</snippet>

@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[<%perl>
+${1}
+</%perl>
+]]></content>
+    <tabTrigger>perl</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason &lt;&#37;perl&gt;</description>
+</snippet>

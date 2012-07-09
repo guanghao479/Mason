@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[<%method ${1}>
+<%args>
+${2}
+</%args>
+<%perl>
+${3}
+</%perl>
+</%method>
+]]></content>
+    <tabTrigger>method</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason &lt;&#37;method&gt;</description>
+</snippet>
