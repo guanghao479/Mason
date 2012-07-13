@@ -1,0 +1,9 @@
+<snippet>
+    <content><![CDATA[<%once>
+${1}
+</%once>
+]]></content>
+    <tabTrigger>once</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason &lt;&#37;once&gt;</description>
+</snippet>
