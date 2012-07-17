@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-FLLogError("${1}", Data::Dumper::Dumper(${2}), join(",",map($_->title,$m->callers)));
+FLLogError("${1}", Data::Dumper::Dumper(${2}), join(",",map(\$_->title,\$m->callers)));
 ]]></content>
   <tabTrigger>FLLogError</tabTrigger>
   <scope>text.html.mason</scope>
