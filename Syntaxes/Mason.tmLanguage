@@ -272,7 +272,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(&lt;%(method|def|closure) .*?&gt;)</string>
+			<string>(&lt;%(method|def|closure) (.*?)&gt;)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
@@ -284,6 +284,11 @@
 				<dict>
 					<key>name</key>
 					<string>variable.other</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.function</string>
 				</dict>
 			</dict>
 			<key>end</key>
