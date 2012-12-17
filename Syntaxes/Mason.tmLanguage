@@ -28,7 +28,7 @@
 		</dict>
 		<dict>
 			<key>begin</key>
-			<string>(&lt;%(perl|attr|global|once|init|cleanup|requestlocal|requestonce|shared|threadlocal|threadonce|flags|shared_vars)( scope.*?)?&gt;)</string>
+			<string>(&lt;%(perl|attr|global|once|init|class|cleanup|requestlocal|requestonce|shared|threadlocal|threadonce|flags|shared_vars)( scope.*?)?&gt;)</string>
 			<key>captures</key>
 			<dict>
 				<key>1</key>
