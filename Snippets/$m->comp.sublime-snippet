@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$m->comp("${1}"${2:, "$3" => $4});]]></content>
+    <tabTrigger>mcomp</tabTrigger>
+    <scope>text.html.mason</scope>
+    <description>Mason $m-&gt;comp call</description>
+</snippet>
