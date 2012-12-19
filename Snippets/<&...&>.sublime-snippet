@@ -4,5 +4,5 @@
 ]]></content>
   <tabTrigger>comp</tabTrigger>
   <scope>text.html.mason</scope>
-  <description>Mason &lt;& &&gt; component call tag</description>
+  <description>Mason &lt;&amp; &amp;&gt; component call tag</description>
 </snippet>
