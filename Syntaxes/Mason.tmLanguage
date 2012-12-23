@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
 	<key>fileTypes</key>
@@ -493,7 +493,7 @@
 			<string>text.html.basic</string>
 		</dict>
 	</array>
-		<key>repository</key>
+	<key>repository</key>
 	<dict>
 		<key>escaped_char</key>
 		<dict>
@@ -934,6 +934,6 @@
 	<key>scopeName</key>
 	<string>text.html.mason</string>
 	<key>uuid</key>
-	<string>34979B9C-CDDC-483E-93B5-B65C6B15E6B0</string>
+	<string>c6574352-a2ef-450d-9a91-b4661e119dbc</string>
 </dict>
 </plist>

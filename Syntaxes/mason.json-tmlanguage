@@ -3,13 +3,13 @@
     "name": "Mason",
     "repository": {
         "nested_ltgt_interpolated": {
+            "begin": "<",
+            "end": ">",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "<",
-            "end": ">",
             "patterns": [
                 {
                     "include": "#variable"
@@ -22,6 +22,8 @@
         "line_comment": {
             "patterns": [
                 {
+                    "name": "meta.comment.full-line.perl",
+                    "match": "^((#).*$\\n?)",
                     "captures": {
                         "1": {
                             "name": "comment.line.number-sign.perl"
@@ -29,29 +31,27 @@
                         "2": {
                             "name": "punctuation.definition.comment.perl"
                         }
-                    },
-                    "name": "meta.comment.full-line.perl",
-                    "match": "^((#).*$\\n?)"
+                    }
                 },
                 {
+                    "name": "comment.line.number-sign.perl",
+                    "match": "(#).*$\\n?",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.comment.perl"
                         }
-                    },
-                    "name": "comment.line.number-sign.perl",
-                    "match": "(#).*$\\n?"
+                    }
                 }
             ]
         },
         "nested_parens": {
+            "begin": "\\(",
+            "end": "\\)",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\(",
-            "end": "\\)",
             "patterns": [
                 {
                     "include": "#escaped_char"
@@ -62,13 +62,13 @@
             ]
         },
         "nested_parens_interpolated": {
+            "begin": "\\(",
+            "end": "\\)",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\(",
-            "end": "\\)",
             "patterns": [
                 {
                     "comment": "This is to prevent thinks like qr/foo$/ to treat $/ as a variable",
@@ -87,13 +87,13 @@
             ]
         },
         "nested_brackets_interpolated": {
+            "begin": "\\[",
+            "end": "\\]",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\[",
-            "end": "\\]",
             "patterns": [
                 {
                     "include": "#escaped_char"
@@ -107,13 +107,13 @@
             ]
         },
         "nested_braces_interpolated": {
+            "begin": "\\{",
+            "end": "\\}",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\{",
-            "end": "\\}",
             "patterns": [
                 {
                     "include": "#escaped_char"
@@ -127,13 +127,13 @@
             ]
         },
         "nested_brackets": {
+            "begin": "\\[",
+            "end": "\\]",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\[",
-            "end": "\\]",
             "patterns": [
                 {
                     "include": "#escaped_char"
@@ -144,13 +144,13 @@
             ]
         },
         "nested_ltgt": {
+            "begin": "<",
+            "end": ">",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "<",
-            "end": ">",
             "patterns": [
                 {
                     "include": "#nested_ltgt"
@@ -160,87 +160,89 @@
         "variable": {
             "patterns": [
                 {
-                    "captures": {
-                        "1": {
-                            "name": "punctuation.definition.variable.perl"
-                        }
-                    },
                     "name": "variable.other.regexp.match.perl",
-                    "match": "(\\$)&(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)&(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.regexp.pre-match.perl",
-                    "match": "(\\$)`(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)`(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.regexp.post-match.perl",
-                    "match": "(\\$)'(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)'(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.regexp.last-paren-match.perl",
-                    "match": "(\\$)\\+(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)\\+(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.readwrite.list-separator.perl",
-                    "match": "(\\$)\"(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)\"(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.predefined.program-name.perl",
-                    "match": "(\\$)0(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)0(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.predefined.perl",
-                    "match": "(\\$)[_ab\\*\\.\\/\\|,\\\\;#%=\\-~^:?!\\$<>\\(\\)\\[\\]@](?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)[_ab\\*\\.\\/\\|,\\\\;#%=\\-~^:?!\\$<>\\(\\)\\[\\]@](?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
+                    }
+                },
+                {
                     "name": "variable.other.subpattern.perl",
-                    "match": "(\\$)[0-9]+(?![A-Za-z0-9_])"
-                },
-                {
+                    "match": "(\\$)[0-9]+(?![A-Za-z0-9_])",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
-                    "name": "variable.other.readwrite.global.perl",
-                    "match": "([\\$\\@\\%](#)?)([a-zA-Zx7f-xff\\$]|::)([a-zA-Z0-9_x7f-xff\\$]|::)*\\b"
+                    }
                 },
                 {
+                    "name": "variable.other.readwrite.global.perl",
+                    "match": "([\\$\\@\\%](#)?)([a-zA-Zx7f-xff\\$]|::)([a-zA-Z0-9_x7f-xff\\$]|::)*\\b",
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    }
+                },
+                {
+                    "name": "variable.other.readwrite.global.perl",
+                    "match": "(\\$\\{)(?:[a-zA-Zx7f-xff\\$]|::)(?:[a-zA-Z0-9_x7f-xff\\$]|::)*(\\})",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
@@ -248,29 +250,27 @@
                         "2": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
-                    "name": "variable.other.readwrite.global.perl",
-                    "match": "(\\$\\{)(?:[a-zA-Zx7f-xff\\$]|::)(?:[a-zA-Z0-9_x7f-xff\\$]|::)*(\\})"
+                    }
                 },
                 {
+                    "name": "variable.other.readwrite.global.special.perl",
+                    "match": "([\\$\\@\\%](#)?)[0-9_]\\b",
                     "captures": {
                         "1": {
                             "name": "punctuation.definition.variable.perl"
                         }
-                    },
-                    "name": "variable.other.readwrite.global.special.perl",
-                    "match": "([\\$\\@\\%](#)?)[0-9_]\\b"
+                    }
                 }
             ]
         },
         "nested_braces": {
+            "begin": "\\{",
+            "end": "\\}",
             "captures": {
                 "1": {
                     "name": "punctuation.section.scope.perl"
                 }
             },
-            "begin": "\\{",
-            "end": "\\}",
             "patterns": [
                 {
                     "include": "#escaped_char"
@@ -292,6 +292,9 @@
             "match": "\\b\\w+\\s*(?==>)"
         },
         {
+            "begin": "(<%(perl|attr|global|once|init|class|cleanup|requestlocal|requestonce|shared|threadlocal|threadonce|flags|shared_vars)( scope.*?)?>)",
+            "end": "(</%(\\2)>)(\\s*$\\n)?",
+            "name": "source.perl.mason.block",
             "captures": {
                 "1": {
                     "name": "punctuation.section.embedded.perl.mason"
@@ -300,9 +303,6 @@
                     "name": "keyword.control"
                 }
             },
-            "begin": "(<%(perl|attr|global|once|init|class|cleanup|requestlocal|requestonce|shared|threadlocal|threadonce|flags|shared_vars)( scope.*?)?>)",
-            "end": "(</%(\\2)>)(\\s*$\\n)?",
-            "name": "source.perl.mason.block",
             "patterns": [
                 {
                     "include": "source.perl"
@@ -310,6 +310,9 @@
             ]
         },
         {
+            "begin": "(<(%text)>)",
+            "end": "(</(%text)>)",
+            "name": "source.perl.mason.doc",
             "captures": {
                 "1": {
                     "name": "keyword.control"
@@ -318,9 +321,6 @@
                     "name": "variable.other"
                 }
             },
-            "begin": "(<(%text)>)",
-            "end": "(</(%text)>)",
-            "name": "source.perl.mason.doc",
             "patterns": [
                 {
                     "begin": "(?<=<%text>)",
@@ -330,6 +330,9 @@
             ]
         },
         {
+            "begin": "(<(%doc)>)",
+            "end": "(</(%doc)>)",
+            "name": "source.perl.mason.doc",
             "captures": {
                 "1": {
                     "name": "keyword.control"
@@ -338,9 +341,6 @@
                     "name": "variable.other"
                 }
             },
-            "begin": "(<(%doc)>)",
-            "end": "(</(%doc)>)",
-            "name": "source.perl.mason.doc",
             "patterns": [
                 {
                     "begin": "(?<=<%doc>)",
@@ -350,11 +350,6 @@
             ]
         },
         {
-            "patterns": [
-                {
-                    "include": "source.perl"
-                }
-            ],
             "begin": "^(%)",
             "end": "$\\n?",
             "name": "source.perl.mason.line",
@@ -362,23 +357,28 @@
                 "1": {
                     "name": "punctuation.section.embedded.perl.mason"
                 }
-            }
+            },
+            "patterns": [
+                {
+                    "include": "source.perl"
+                }
+            ]
         },
         {
             "begin": "(<&\\|)((\\w|\\.|\\:)*)(?!&>)",
             "end": "(</&>)",
             "name": "source.mason.component.block",
-            "endCaptures": {
-                "1": {
-                    "name": "keyword.control"
-                }
-            },
             "beginCaptures": {
                 "1": {
                     "name": "keyword.control"
                 },
                 "2": {
                     "name": "entity.name.function"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "keyword.control"
                 }
             },
             "patterns": [
@@ -403,17 +403,17 @@
             "begin": "(<&)(.{1,}?)( |,)+",
             "end": "(&>)",
             "name": "source.mason.component",
-            "endCaptures": {
-                "1": {
-                    "name": "keyword.control"
-                }
-            },
             "beginCaptures": {
                 "1": {
                     "name": "keyword.control"
                 },
                 "2": {
                     "name": "entity.name.function"
+                }
+            },
+            "endCaptures": {
+                "1": {
+                    "name": "keyword.control"
                 }
             },
             "patterns": [
@@ -423,6 +423,9 @@
             ]
         },
         {
+            "begin": "(<%(args.*?)>)",
+            "end": "(</%(\\2)>)",
+            "name": "source.mason.args",
             "captures": {
                 "1": {
                     "name": "keyword.control"
@@ -431,9 +434,6 @@
                     "name": "variable.other"
                 }
             },
-            "begin": "(<%(args.*?)>)",
-            "end": "(</%(\\2)>)",
-            "name": "source.mason.args",
             "patterns": [
                 {
                     "captures": {
@@ -447,20 +447,20 @@
             ]
         },
         {
+            "begin": "(<%(method|def|closure) (.*?)>)",
+            "end": "(</%(\\2)>)",
+            "name": "source.mason.methods",
             "captures": {
                 "1": {
                     "name": "keyword.control"
                 },
-                "3": {
-                    "name": "entity.name.function"
-                },
                 "2": {
                     "name": "variable.other"
+                },
+                "3": {
+                    "name": "entity.name.function"
                 }
             },
-            "begin": "(<%(method|def|closure) (.*?)>)",
-            "end": "(</%(\\2)>)",
-            "name": "source.mason.methods",
             "patterns": [
                 {
                     "include": "$self"
@@ -468,14 +468,14 @@
             ]
         },
         {
+            "begin": "(<%) ",
+            "end": "(%>)",
+            "name": "source.mason.substitution",
             "captures": {
                 "1": {
                     "name": "keyword.control"
                 }
             },
-            "begin": "(<%) ",
-            "end": "(%>)",
-            "name": "source.mason.substitution",
             "patterns": [
                 {
                     "include": "source.perl"
@@ -483,20 +483,20 @@
             ]
         },
         {
+            "begin": "(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)",
+            "end": "(</)((?i:style))(>)(?:\\s*\\n)?",
+            "name": "source.css.embedded.html",
             "captures": {
                 "1": {
                     "name": "punctuation.definition.tag.html"
                 },
-                "3": {
-                    "name": "punctuation.definition.tag.html"
-                },
                 "2": {
                     "name": "entity.name.tag.style.html"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.html"
                 }
             },
-            "begin": "(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)",
-            "end": "(</)((?i:style))(>)(?:\\s*\\n)?",
-            "name": "source.css.embedded.html",
             "patterns": [
                 {
                     "include": "#tag-stuff"
@@ -602,5 +602,5 @@
         "m",
         "mi"
     ],
-    "uuid": "34979B9C-CDDC-483E-93B5-B65C6B15E6B0"
+    "uuid": "c6574352-a2ef-450d-9a91-b4661e119dbc"
 }
