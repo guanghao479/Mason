@@ -1,0 +1,606 @@
+{
+    "foldingStartMarker": "(<(?i:(head|table|div|style|script|ul|ol|form|dl))\\b.*?>|\\{)",
+    "name": "Mason",
+    "repository": {
+        "nested_ltgt_interpolated": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "<",
+            "end": ">",
+            "patterns": [
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#nested_ltgt_interpolated"
+                }
+            ]
+        },
+        "line_comment": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "comment.line.number-sign.perl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.comment.perl"
+                        }
+                    },
+                    "name": "meta.comment.full-line.perl",
+                    "match": "^((#).*$\\n?)"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.comment.perl"
+                        }
+                    },
+                    "name": "comment.line.number-sign.perl",
+                    "match": "(#).*$\\n?"
+                }
+            ]
+        },
+        "nested_parens": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\(",
+            "end": "\\)",
+            "patterns": [
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#nested_parens"
+                }
+            ]
+        },
+        "nested_parens_interpolated": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\(",
+            "end": "\\)",
+            "patterns": [
+                {
+                    "comment": "This is to prevent thinks like qr/foo$/ to treat $/ as a variable",
+                    "name": "keyword.control.anchor.perl",
+                    "match": "\\$(?=[^\\s\\w\\'\\{\\[\\(\\<])"
+                },
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#nested_parens_interpolated"
+                }
+            ]
+        },
+        "nested_brackets_interpolated": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#nested_brackets_interpolated"
+                }
+            ]
+        },
+        "nested_braces_interpolated": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#variable"
+                },
+                {
+                    "include": "#nested_braces_interpolated"
+                }
+            ]
+        },
+        "nested_brackets": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#nested_brackets"
+                }
+            ]
+        },
+        "nested_ltgt": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "<",
+            "end": ">",
+            "patterns": [
+                {
+                    "include": "#nested_ltgt"
+                }
+            ]
+        },
+        "variable": {
+            "patterns": [
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.regexp.match.perl",
+                    "match": "(\\$)&(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.regexp.pre-match.perl",
+                    "match": "(\\$)`(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.regexp.post-match.perl",
+                    "match": "(\\$)'(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.regexp.last-paren-match.perl",
+                    "match": "(\\$)\\+(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.readwrite.list-separator.perl",
+                    "match": "(\\$)\"(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.predefined.program-name.perl",
+                    "match": "(\\$)0(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.predefined.perl",
+                    "match": "(\\$)[_ab\\*\\.\\/\\|,\\\\;#%=\\-~^:?!\\$<>\\(\\)\\[\\]@](?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.subpattern.perl",
+                    "match": "(\\$)[0-9]+(?![A-Za-z0-9_])"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.readwrite.global.perl",
+                    "match": "([\\$\\@\\%](#)?)([a-zA-Zx7f-xff\\$]|::)([a-zA-Z0-9_x7f-xff\\$]|::)*\\b"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        },
+                        "2": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.readwrite.global.perl",
+                    "match": "(\\$\\{)(?:[a-zA-Zx7f-xff\\$]|::)(?:[a-zA-Z0-9_x7f-xff\\$]|::)*(\\})"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.variable.perl"
+                        }
+                    },
+                    "name": "variable.other.readwrite.global.special.perl",
+                    "match": "([\\$\\@\\%](#)?)[0-9_]\\b"
+                }
+            ]
+        },
+        "nested_braces": {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.scope.perl"
+                }
+            },
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [
+                {
+                    "include": "#escaped_char"
+                },
+                {
+                    "include": "#nested_braces"
+                }
+            ]
+        },
+        "escaped_char": {
+            "name": "constant.character.escape.perl",
+            "match": "\\\\."
+        }
+    },
+    "scopeName": "text.html.mason",
+    "patterns": [
+        {
+            "name": "constant.other.key.perl",
+            "match": "\\b\\w+\\s*(?==>)"
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "punctuation.section.embedded.perl.mason"
+                },
+                "2": {
+                    "name": "keyword.control"
+                }
+            },
+            "begin": "(<%(perl|attr|global|once|init|class|cleanup|requestlocal|requestonce|shared|threadlocal|threadonce|flags|shared_vars)( scope.*?)?>)",
+            "end": "(</%(\\2)>)(\\s*$\\n)?",
+            "name": "source.perl.mason.block",
+            "patterns": [
+                {
+                    "include": "source.perl"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "variable.other"
+                }
+            },
+            "begin": "(<(%text)>)",
+            "end": "(</(%text)>)",
+            "name": "source.perl.mason.doc",
+            "patterns": [
+                {
+                    "begin": "(?<=<%text>)",
+                    "end": "(?=</%text>)",
+                    "name": "comment.block"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "variable.other"
+                }
+            },
+            "begin": "(<(%doc)>)",
+            "end": "(</(%doc)>)",
+            "name": "source.perl.mason.doc",
+            "patterns": [
+                {
+                    "begin": "(?<=<%doc>)",
+                    "end": "(?=</%doc>)",
+                    "name": "comment.block"
+                }
+            ]
+        },
+        {
+            "patterns": [
+                {
+                    "include": "source.perl"
+                }
+            ],
+            "begin": "^(%)",
+            "end": "$\\n?",
+            "name": "source.perl.mason.line",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.section.embedded.perl.mason"
+                }
+            }
+        },
+        {
+            "begin": "(<&\\|)((\\w|\\.|\\:)*)(?!&>)",
+            "end": "(</&>)",
+            "name": "source.mason.component.block",
+            "endCaptures": {
+                "1": {
+                    "name": "keyword.control"
+                }
+            },
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "entity.name.function"
+                }
+            },
+            "patterns": [
+                {
+                    "patterns": [
+                        {
+                            "include": "$self"
+                        }
+                    ],
+                    "begin": "(&>)",
+                    "end": "(?=</&>)",
+                    "name": "source.mason.nesty",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "keyword.control"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "begin": "(<&)(.{1,}?)( |,)+",
+            "end": "(&>)",
+            "name": "source.mason.component",
+            "endCaptures": {
+                "1": {
+                    "name": "keyword.control"
+                }
+            },
+            "beginCaptures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "entity.name.function"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "source.perl"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "2": {
+                    "name": "variable.other"
+                }
+            },
+            "begin": "(<%(args.*?)>)",
+            "end": "(</%(\\2)>)",
+            "name": "source.mason.args",
+            "patterns": [
+                {
+                    "captures": {
+                        "2": {
+                            "name": "string.quoted.single"
+                        }
+                    },
+                    "include": "source.perl",
+                    "match": "(\\s*)?(\\w*)"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                },
+                "3": {
+                    "name": "entity.name.function"
+                },
+                "2": {
+                    "name": "variable.other"
+                }
+            },
+            "begin": "(<%(method|def|closure) (.*?)>)",
+            "end": "(</%(\\2)>)",
+            "name": "source.mason.methods",
+            "patterns": [
+                {
+                    "include": "$self"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "keyword.control"
+                }
+            },
+            "begin": "(<%) ",
+            "end": "(%>)",
+            "name": "source.mason.substitution",
+            "patterns": [
+                {
+                    "include": "source.perl"
+                }
+            ]
+        },
+        {
+            "captures": {
+                "1": {
+                    "name": "punctuation.definition.tag.html"
+                },
+                "3": {
+                    "name": "punctuation.definition.tag.html"
+                },
+                "2": {
+                    "name": "entity.name.tag.style.html"
+                }
+            },
+            "begin": "(?:^\\s+)?(<)((?i:style))\\b(?![^>]*/>)",
+            "end": "(</)((?i:style))(>)(?:\\s*\\n)?",
+            "name": "source.css.embedded.html",
+            "patterns": [
+                {
+                    "include": "#tag-stuff"
+                },
+                {
+                    "patterns": [
+                        {
+                            "include": "#embedded-code"
+                        },
+                        {
+                            "include": "$self"
+                        },
+                        {
+                            "include": "source.css"
+                        }
+                    ],
+                    "begin": "(>)",
+                    "end": "(?=</(?i:style))",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag.html"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "begin": "(?:^\\s+)?(<)((?i:script))\\b(?![^>]*/>)",
+            "end": "(?<=</(script|SCRIPT))(>)(?:\\s*\\n)?",
+            "name": "source.js.embedded.html",
+            "endCaptures": {
+                "2": {
+                    "name": "punctuation.definition.tag.html"
+                }
+            },
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.html"
+                },
+                "2": {
+                    "name": "entity.name.tag.script.html"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#tag-stuff"
+                },
+                {
+                    "captures": {
+                        "1": {
+                            "name": "punctuation.definition.tag.html"
+                        },
+                        "2": {
+                            "name": "entity.name.tag.script.html"
+                        }
+                    },
+                    "begin": "(?<!</(?:script|SCRIPT))(>)",
+                    "end": "(</)((?i:script))",
+                    "patterns": [
+                        {
+                            "captures": {
+                                "1": {
+                                    "name": "punctuation.definition.comment.js"
+                                }
+                            },
+                            "name": "comment.line.double-slash.js",
+                            "match": "(//).*?((?=</script)|$\\n?)"
+                        },
+                        {
+                            "captures": {
+                                "0": {
+                                    "name": "punctuation.definition.comment.js"
+                                }
+                            },
+                            "begin": "/\\*",
+                            "end": "\\*/|(?=</script)",
+                            "name": "comment.block.js"
+                        },
+                        {
+                            "include": "#php"
+                        },
+                        {
+                            "include": "$self"
+                        },
+                        {
+                            "include": "source.js"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "include": "text.html.basic"
+        }
+    ],
+    "foldingStopMarker": "(</(?i:(head|table|div|style|script|ul|ol|form|dl))>|\\})",
+    "fileTypes": [
+        "mhtml",
+        "autohandler",
+        "dhandler",
+        "md",
+        "mc",
+        "m",
+        "mi"
+    ],
+    "uuid": "34979B9C-CDDC-483E-93B5-B65C6B15E6B0"
+}
