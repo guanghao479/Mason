@@ -17,7 +17,7 @@ Install via [Package Control](http://wbond.net/sublime_packages/package_control)
 `dhandler`
 `mhtml`
 
-## Symbols / Definitions
+## Goto Symbol
 
 Any named block defined by <%def>, <%method> and <%closure>
 
