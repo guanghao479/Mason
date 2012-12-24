@@ -21,7 +21,7 @@ Install via [Package Control](http://wbond.net/sublime_packages/package_control)
 
 Any named block defined by <%def>, <%method> and <%closure>
 
-## Snippets
+## Snippets [trigger: details]
 
 __args: <%args> block__
 
