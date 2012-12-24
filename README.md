@@ -23,7 +23,7 @@ Any named block defined by <%def>, <%method> and <%closure>
 
 ## Snippets
 
-__args__
+__args: <%args> block__
 
 ```perl
 <%args>
@@ -31,7 +31,7 @@ __args__
 </%args>
 ```
 
-__class__
+__class: <%class> block__
 
 ```perl
 <%class>
@@ -39,13 +39,13 @@ __class__
 </%class>
 ```
 
-__<& &>__
+__comp: <& &> tag__
 
 ```perl
 <& "${1}"${2:, "$3" => $4} &>
 ```
 
-__def__
+__def: <%def> block__
 
 ```perl
 <%def .${1}>
@@ -59,7 +59,7 @@ __def__
 </%def>
 ```
 
-__doc__
+__doc: <%doc> block__
 
 ```perl
 <%doc>
@@ -67,7 +67,7 @@ __doc__
 </%doc>
 ```
 
-__init__
+__init: <%init> block__
 
 ```perl
 <%init>
@@ -75,13 +75,13 @@ __init__
 </%init>
 ```
 
-__$m->comp()__
+__mcomp: $m->comp()__
 
 ```perl
 $m->comp("${1}"${2:, "$3" => $4});
 ```
 
-__method__
+__method: <%method> block__
 
 ```perl
 <%method ${1}>
@@ -95,7 +95,7 @@ __method__
 </%method>
 ```
 
-__once__
+__once: <%once> block__
 
 ```perl
 <%once>
@@ -103,7 +103,7 @@ __once__
 </%once>
 ```
 
-__perl__
+__perl: <%perl> block__
 
 ```perl
 <%perl>
