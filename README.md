@@ -1,6 +1,8 @@
 Mason
 =====
 
+[![Join the chat at https://gitter.im/fmaj7/Mason](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/fmaj7/Mason?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 Mason Syntax and Snippets for Sublime Text 2
 
 ## Install
